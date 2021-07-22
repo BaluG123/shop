@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block title %}
+oof.com
+{% endblock %}
+{% block content %}
+{% for item in items_list2 %}
+<div class="col-md-12 col-sm-12 col-lg-4 col-xl-4">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+              {% if item.image1 %}
+              <a href="{{item.link}}" style="text-decoration: none;">
+            <img src="{{item.image1.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+            <div class="carousel-caption ">
+              <h5 style="color:black;font-style: italic;"><span style="color:#3b5998;font-size:xx-large;font-weight: lighter;">{{item.site|title}}</span> <br> <span style="font-size: 16px;">{{item.item_name}}</span></h5></a>
+              <p><span style="font-weight: lighter; text-decoration: line-through;color: red;"> price: {{item.price}} &#8377;</span>&nbsp&nbsp<span style="color:black;">offered-price: {{item.off_price}} &#8377;</span>&nbsp&nbsp <span style="color:green;font-weight: bold;">{{item.off_p}}% off</span></p>
+            </div>
+            {% endif %}
+          </div>
+          <div class="carousel-item">
+              {% if item.image2 %}
+              <a href="{{item.link2}}" style="text-decoration: none;">
+            <img src="{{item.image2.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+            <div class="carousel-caption">
+              <h5 style="color:black;font-style: italic;"><span style="color:#3b5998;font-size: xx-large;font-weight: lighter;">{{item.site2|title}}</span> <br> <span style="font-size: 16px;">{{item.item_name2}}</span></h5></a>
+              <p><span style="font-weight: lighter; text-decoration: line-through;color: red;"> price: {{item.price2}} &#8377;</span>&nbsp&nbsp<span style="color:black;">offered-price: {{item.off_price2}} &#8377;</span>&nbsp&nbsp <span style="color:green;font-weight: bold;">{{item.off_p2}}% off</span></p>
+            </div>
+            {% endif %}
+          </div>
+          <div class="carousel-item">
+              {% if item.image3 %}
+              <a href="{{item.link3}}" style="text-decoration: none;">
+            <img src="{{item.image3.url}}" class="d-block w-100" alt="...">
+            <div class="carousel-caption ">
+              <h5 style="color:black;font-style: italic;"><span style="color:#3b5998;font-size: xx-large;font-weight: lighter;">{{item.site3|title}}</span> <br> <span style="font-size: 16px;">{{item.item_name3}}</span></h5></a>
+              <p><span style="font-weight: lighter; text-decoration: line-through;color: red;"> price: {{item.price3}} &#8377;</span>&nbsp&nbsp<span style="color:black;">offered-price: {{item.off_price3}} &#8377;</span>&nbsp&nbsp <span style="color:green;font-weight: bold;">{{item.off_p3}}% off</span></p>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</div>
+{% endfor %}
+{% endblock %}

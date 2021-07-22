@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% load static %}
+{% block title %}
+oof.com
+{% endblock %}
+{% block content %}
+{% for item in items_list1 %}
+<div class="col-md-12 col-sm-12 col-lg-4 col-xl-4 container">
+<a href="{{item.link}}">
+<div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        {% if item.image1 %}
+        <img src="{{item.image1.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+        {% endif %}
+      </div>
+      <div class="carousel-item">
+        {% if item.image2 %}
+        <img src="{{item.image2.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+        {% endif %}
+      </div>
+      <div class="carousel-item">
+          {% if item.image3 %}
+        <img src="{{item.image3.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+        {% endif %}
+      </div>
+      <div class="carousel-item active">
+          {% if itme.image4 %}
+        <img src="{{item.image4.url}}" class="d-block w-100" alt="..." width="100%" height="auto">
+        {% endif %}
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+<p style="text-decoration: none;color: black;">{{item.item_name}}</p></a>
+<p> <span style="font-weight: lighter; text-decoration: line-through;color: red;"> price: {{item.price}} &#8377;</span>&nbsp&nbsp<span>offered-price: {{item.off_price}} &#8377;</span>&nbsp&nbsp <span style="color:green;font-weight: bold;">{{item.off_p}}% off</span></p>
+<p>{{item.company}}</p><hr>
+</div>
+{% endfor %}
+{% endblock %}
